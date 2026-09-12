@@ -41,14 +41,14 @@
     \coordinate (IBC) at (19.5, 7.2);
     \coordinate (BC)  at (19.5, 0);
 
-    % Hintergrund für das Mittelfeld
-    \fill[color=lightBlue!50] (IBL) rectangle (ITR);
+    % Hintergrund für das Mittelfeld (zartes Hellblau, komplett frei zum Legen)
+    \fill[color=lightBlue!30] (IBL) rectangle (ITR);
 
     % --- LINIEN (EXAKT WIE AUF DER VORLAGE) ---
     % 1. Außenrahmen
     \draw[line width=1.8pt, color=primaryBlue] (BL) rectangle (TR);
 
-    % 2. Innenkasten
+    % 2. Innenkasten (Mitte bleibt komplett frei)
     \draw[line width=1.8pt, color=primaryBlue] (IBL) rectangle (ITR);
 
     % 3. Diagonale Oben-Links
@@ -62,52 +62,33 @@
 
 
     % =========================================================================
-    % 2. INHALT MITTELFELD: GEMEINSAME STRUKTURLEGETECHNIK
+    % 2. MITTELFELD: KOMPLETT FREI ZUM LEGEN
     % =========================================================================
-    \node[anchor=north, text width=19.0cm, align=center, font=\sffamily] at (19.5, 18.7) {
-        {\Large\bfseries\color{primaryBlue} Mittelfeld: Gemeinsame Strukturlegetechnik}\\[0.15cm]
-        {\small\color{primaryBlue!85}\textbf{Anleitung:} Einigt euch auf die \textbf{5 Kernbegriffe}. Legt und ordnet sie als \textbf{Ober- und Unterbegriffe} bzw. in ihr Wirkungsgefüge und verbindet sie mit beschrifteten Pfeilen ($\rightarrow$, $\leftrightarrow$).}
-    };
-
-    % Zarte Orientierungs-Kästchen für die 5 Stationen (lassen viel Platz zum Legen)
-    \node[anchor=center, text width=19.0cm, align=center, font=\footnotesize\sffamily\color{gray!70}] at (19.5, 12.5) {
-        \begin{tikzpicture}[x=3.7cm, y=1.2cm]
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b1) at (0, 1.5) {\textbf{\color{primaryBlue}1. Biologische Natur}\\ \tiny Triebbegabung / Homo homini lupus};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b2) at (2.4, 1.5) {\textbf{\color{primaryBlue}2. Bedrohte Kultur}\\ \tiny Zerfall der Gesellschaft};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b3) at (4.8, 1.5) {\textbf{\color{primaryBlue}3. Kulturelle Zähmung}\\ \tiny Triebverzicht / Liebesgebot};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b4) at (1.2, -1.5) {\textbf{\color{primaryBlue}4. Psychischer Wandel}\\ \tiny Introjektion $\rightarrow$ Über-Ich};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.6cm, align=center] (b5) at (3.6, -1.5) {\textbf{\color{primaryBlue}5. Seelische Kostenstelle}\\ \tiny Schuldbewusstsein / Unbehagen};
-
-            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b1) -- node[above, font=\tiny] {erzeugt} (b2);
-            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b2) -- node[above, font=\tiny] {erzwingt} (b3);
-            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b3) -- node[right, font=\tiny] {führt zu} (b4);
-            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b4) -- node[above, font=\tiny] {erzeugt} (b5);
-        \end{tikzpicture}
-    };
+    % (Bewusst leer gelassen für maximale Handlungsfreiheit beim Strukturlegen)
 
 
     % =========================================================================
-    % 3. BESCHRIFTUNG DER 3 AUSSENFELDER (FÜR 3ER-GRUPPE)
+    % 3. BESCHRIFTUNG DER 3 AUSSENFELDER (NUR AUSSENFELD + NUMMER)
     % =========================================================================
 
     % --- FELD 1: OBEN (Trapez) ---
-    \node[anchor=north, text width=26cm, align=center, font=\sffamily] at (19.5, 25.7) {
-        \textbf{\color{primaryBlue}\large Außenfeld 1 (Schüler/in A)} \qquad Name: \rule{5cm}{0.4pt}\\[0.15cm]
+    \node[anchor=north, text width=26cm, align=center, font=\sffamily] at (19.5, 25.8) {
+        {\textbf{\color{primaryBlue}\Large Außenfeld 1}}\\[0.15cm]
         \small\textbf{1.} Lies den Textauszug und notiere für dich \textbf{5--8 zentrale Begriffe}. \quad
         \textbf{2.} Lies die Felder der anderen und markiere: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
     % --- FELD 2: UNTEN LINKS ---
-    \node[anchor=north west, text width=17.0cm, align=left, font=\sffamily] at (1.0, 6.4) {
-        \textbf{\color{primaryBlue}\large Außenfeld 2 (Schüler/in B)} \quad Name: \rule{4.5cm}{0.4pt}\\[0.15cm]
-        \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.05cm]
+    \node[anchor=north west, text width=17.0cm, align=left, font=\sffamily] at (1.0, 6.5) {
+        {\textbf{\color{primaryBlue}\Large Außenfeld 2}}\\[0.15cm]
+        \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.08cm]
         \small\textbf{2.} Markiere in den anderen Feldern: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
     % --- FELD 3: UNTEN RECHTS ---
-    \node[anchor=north west, text width=17.0cm, align=left, font=\sffamily] at (20.5, 6.4) {
-        \textbf{\color{primaryBlue}\large Außenfeld 3 (Schüler/in C)} \quad Name: \rule{4.5cm}{0.4pt}\\[0.15cm]
-        \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.05cm]
+    \node[anchor=north west, text width=17.0cm, align=left, font=\sffamily] at (20.5, 6.5) {
+        {\textbf{\color{primaryBlue}\Large Außenfeld 3}}\\[0.15cm]
+        \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.08cm]
         \small\textbf{2.} Markiere in den anderen Feldern: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 

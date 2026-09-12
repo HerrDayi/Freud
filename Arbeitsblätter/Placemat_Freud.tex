@@ -5,7 +5,6 @@
 \usepackage{libertinus}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usepackage{tcolorbox}
 
 \definecolor{primaryBlue}{RGB}{20, 50, 100}
 \definecolor{lightBlue}{RGB}{245, 248, 253}
@@ -17,84 +16,89 @@
 
 \begin{tikzpicture}[remember picture, overlay]
 
-    % Gesamtrahmen & Hintergrund
-    \coordinate (NW) at ([xshift=1.2cm, yshift=-1.2cm]current page.north west);
-    \coordinate (NE) at ([xshift=-1.2cm, yshift=-1.2cm]current page.north east);
-    \coordinate (SE) at ([xshift=-1.2cm, yshift=1.2cm]current page.south east);
-    \coordinate (SW) at ([xshift=1.2cm, yshift=1.2cm]current page.south west);
+    % =========================================================================
+    % 1. GEOMETRIE: EXAKT NACH VORLAGE DES NUTZERS (3 AUSSENFELDER + MITTELFELD)
+    % =========================================================================
 
-    % Äußere Begrenzungslinie
-    \draw[line width=1.5pt, color=primaryBlue] (NW) rectangle (SE);
+    % Äußere Eckpunkte
+    \coordinate (TL) at ([xshift=1.2cm, yshift=-1.2cm]current page.north west);
+    \coordinate (TR) at ([xshift=-1.2cm, yshift=-1.2cm]current page.north east);
+    \coordinate (BR) at ([xshift=-1.2cm, yshift=1.2cm]current page.south east);
+    \coordinate (BL) at ([xshift=1.2cm, yshift=1.2cm]current page.south west);
 
-    % Zentrales Mittelfeld (Placemat Center)
-    % A3 landscape: ~42cm x 29.7cm -> Innenfeld ca. 20cm x 14cm
-    \coordinate (CNW) at ([xshift=-10.5cm, yshift=7.2cm]current page.center);
-    \coordinate (CNE) at ([xshift=10.5cm, yshift=7.2cm]current page.center);
-    \coordinate (CSE) at ([xshift=10.5cm, yshift=-7.2cm]current page.center);
-    \coordinate (CSW) at ([xshift=-10.5cm, yshift=-7.2cm]current page.center);
+    % Äußerer Rahmen
+    \draw[line width=1.5pt, color=primaryBlue] (TL) rectangle (BR);
 
-    % Diagonale Trennlinien zu den Ecken (4 Außenfelder)
-    \draw[line width=1.2pt, color=primaryBlue!70, dashed] (NW) -- (CNW);
-    \draw[line width=1.2pt, color=primaryBlue!70, dashed] (NE) -- (CNE);
-    \draw[line width=1.2pt, color=primaryBlue!70, dashed] (SE) -- (CSE);
-    \draw[line width=1.2pt, color=primaryBlue!70, dashed] (SW) -- (CSW);
+    % Zentrales Mittelfeld (Rechteck in der Mitte)
+    % A3: 42.0cm x 29.7cm -> Mittelfeld ca. 20.5cm x 12.5cm
+    \coordinate (ITL) at ([xshift=-10.25cm, yshift=6.25cm]current page.center);
+    \coordinate (ITR) at ([xshift=10.25cm, yshift=6.25cm]current page.center);
+    \coordinate (IBR) at ([xshift=10.25cm, yshift=-6.25cm]current page.center);
+    \coordinate (IBL) at ([xshift=-10.25cm, yshift=-6.25cm]current page.center);
+
+    % Mittlere Punkte der unteren Kanten
+    \coordinate (IBC) at ([yshift=-6.25cm]current page.center); % Unten Mitte des Innenkastens
+    \coordinate (BC)  at ([yshift=1.2cm]current page.south);      % Unten Mitte des Außenrahmens
+
+    % Die 3 Trennlinien exakt wie auf der Skizze:
+    % 1. Von Ecke Oben-Links (TL) zu Innen-Ecke Oben-Links (ITL)
+    \draw[line width=1.2pt, color=primaryBlue] (TL) -- (ITL);
+    % 2. Von Ecke Oben-Rechts (TR) zu Innen-Ecke Oben-Rechts (ITR)
+    \draw[line width=1.2pt, color=primaryBlue] (TR) -- (ITR);
+    % 3. Von Unterkante Innenkasten (IBC) senkrecht nach unten zur Außenkante (BC)
+    \draw[line width=1.2pt, color=primaryBlue] (IBC) -- (BC);
 
     % Zentrales Feld füllen & umranden
-    \fill[color=lightBlue!50] (CNW) rectangle (CSE);
-    \draw[line width=2pt, color=primaryBlue] (CNW) rectangle (CSE);
+    \fill[color=lightBlue!40] (ITL) rectangle (IBR);
+    \draw[line width=1.8pt, color=primaryBlue] (ITL) rectangle (IBR);
 
     % =========================================================================
-    % INHALT MITTELFELD: STRUKTURLEGETECHNIK (GEMEINSAME SYNTHESE)
+    % 2. BESCHRIFTUNG & HILFEN: MITTELFELD (GEMEINSAME SYNTHESE)
     % =========================================================================
-    \node[anchor=north, text width=20cm, align=center, font=\sffamily] at ([yshift=-0.5cm]current page.center |- CNW) {
-        {\Large\bfseries\color{primaryBlue} Mittelfeld: Gemeinsame Strukturlegetechnik}\\[0.15cm]
-        {\small\color{primaryBlue!80}\textbf{Anleitung:} Einigt euch auf die \textbf{5 Kernbegriffe}. Legt und ordnet sie als \textbf{Ober- und Unterbegriffe} bzw. in ihr Wirkungsgefüge und verbindet sie mit beschrifteten Pfeilen ($\rightarrow$, $\leftrightarrow$).}
+    \node[anchor=north, text width=19.5cm, align=center, font=\sffamily] at ([yshift=-0.45cm]current page.center |- ITL) {
+        {\Large\bfseries\color{primaryBlue} Mittelfeld: Gemeinsame Strukturlegetechnik}\\[0.12cm]
+        {\small\color{primaryBlue!85}\textbf{Anleitung:} Einigt euch auf die \textbf{5 Kernbegriffe}. Legt und ordnet sie als \textbf{Ober- und Unterbegriffe} bzw. in ihr Wirkungsgefüge und verbindet sie mit beschrifteten Pfeilen ($\rightarrow$, $\leftrightarrow$).}
     };
 
-    % Hilfsmarkierungen im Mittelfeld (5 Stationen als sanfte Orientierung)
-    \node[anchor=center, text width=19.5cm, align=center, font=\footnotesize\sffamily\color{gray!70}] at (current page.center) {
+    % Zarte Orientierungs-Kästen für die 5 Stationen (viel Freiraum zum Legen/Schreiben)
+    \node[anchor=center, text width=19.5cm, align=center, font=\footnotesize\sffamily\color{gray!70}] at ([yshift=-0.3cm]current page.center) {
         \begin{tikzpicture}[x=3.8cm, y=1.2cm]
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.2cm, align=center] (b1) at (0, 1.8) {\textbf{\color{primaryBlue}1. Biologische Natur}\\ \tiny Triebbegabung / Homo homini lupus};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.2cm, align=center] (b2) at (2.4, 1.8) {\textbf{\color{primaryBlue}2. Bedrohte Kultur}\\ \tiny Zerfall der Gesellschaft};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.4cm, align=center] (b3) at (4.8, 1.8) {\textbf{\color{primaryBlue}3. Kulturelle Zähmung}\\ \tiny Triebverzicht / Liebesgebot};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.4cm, align=center] (b4) at (1.2, -1.8) {\textbf{\color{primaryBlue}4. Psychischer Wandel}\\ \tiny Introjektion $\rightarrow$ Über-Ich};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.6cm, align=center] (b5) at (3.6, -1.8) {\textbf{\color{primaryBlue}5. Seelische Kostenstelle}\\ \tiny Schuldbewusstsein / Unbehagen};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b1) at (0, 1.6) {\textbf{\color{primaryBlue}1. Biologische Natur}\\ \tiny Triebbegabung / Homo homini lupus};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b2) at (2.4, 1.6) {\textbf{\color{primaryBlue}2. Bedrohte Kultur}\\ \tiny Zerfall der Gesellschaft};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b3) at (4.8, 1.6) {\textbf{\color{primaryBlue}3. Kulturelle Zähmung}\\ \tiny Triebverzicht / Liebesgebot};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b4) at (1.2, -1.6) {\textbf{\color{primaryBlue}4. Psychischer Wandel}\\ \tiny Introjektion $\rightarrow$ Über-Ich};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.6cm, align=center] (b5) at (3.6, -1.6) {\textbf{\color{primaryBlue}5. Seelische Kostenstelle}\\ \tiny Schuldbewusstsein / Unbehagen};
 
-            \draw[->, >=latex, line width=1pt, color=primaryBlue!40, dashed] (b1) -- node[above, font=\tiny] {erzeugt} (b2);
-            \draw[->, >=latex, line width=1pt, color=primaryBlue!40, dashed] (b2) -- node[above, font=\tiny] {erzwingt} (b3);
-            \draw[->, >=latex, line width=1pt, color=primaryBlue!40, dashed] (b3) -- node[right, font=\tiny] {führt zu} (b4);
-            \draw[->, >=latex, line width=1pt, color=primaryBlue!40, dashed] (b4) -- node[above, font=\tiny] {erzeugt} (b5);
+            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b1) -- node[above, font=\tiny] {erzeugt} (b2);
+            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b2) -- node[above, font=\tiny] {erzwingt} (b3);
+            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b3) -- node[right, font=\tiny] {führt zu} (b4);
+            \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b4) -- node[above, font=\tiny] {erzeugt} (b5);
         \end{tikzpicture}
     };
 
     % =========================================================================
-    % AUSSENFELDER 1 BIS 4 (EINZELARBEIT: SCHLÜSSELBEGRIFFE)
+    % 3. BESCHRIFTUNG: DIE 3 AUSSENFELDER (FÜR EINE 3ER-GRUPPE)
     % =========================================================================
 
-    % Außenfeld 1 (Oben / Nord)
-    \node[anchor=north, text width=16cm, align=center, font=\sffamily] at ([yshift=-0.4cm]current page.north) {
-        \textbf{\color{primaryBlue}Außenfeld 1 (Schüler/in A):} Name: \rule{4cm}{0.4pt} \quad \textbf{5--8 zentrale Begriffe}\\[0.1cm]
-        \tiny\color{gray}1. Schreibe für dich 5--8 zentrale Begriffe auf. \quad 2. Lies danach die Felder der anderen und markiere: \textbf{!} = tragend, \textbf{?} = unklar.
+    % --- FELD 1: OBEN (Trapez) ---
+    \node[anchor=north, text width=26cm, align=center, font=\sffamily] at ([yshift=-0.4cm]current page.north) {
+        \textbf{\color{primaryBlue}\large Außenfeld 1 (Schüler/in A)} \qquad Name: \rule{5cm}{0.4pt}\\[0.15cm]
+        \small\textbf{1.} Lies den Textauszug und notiere für dich \textbf{5--8 zentrale Begriffe}. \quad
+        \textbf{2.} Lies die Felder der anderen und markiere: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
-    % Außenfeld 2 (Rechts / Ost - gedreht für die Person am Kopfende)
-    \node[anchor=center, rotate=90, text width=12cm, align=center, font=\sffamily] at ([xshift=-1.6cm]current page.east) {
-        \textbf{\color{primaryBlue}Außenfeld 2 (Schüler/in B):} Name: \rule{4cm}{0.4pt}\\[0.05cm]
-        \textbf{5--8 zentrale Begriffe} (! = tragend, ? = unklar)\\[0.1cm]
-        \tiny\color{gray}1. Schreibe 5--8 Begriffe auf. \quad 2. Lies die Felder der anderen und markiere [ ! ] oder [ ? ].
+    % --- FELD 2: UNTEN LINKS (Polygon) ---
+    \node[anchor=north west, text width=16.5cm, align=left, font=\sffamily] at ([xshift=1.6cm, yshift=-0.4cm]current page.west |- IBL) {
+        \textbf{\color{primaryBlue}\large Außenfeld 2 (Schüler/in B)} \quad Name: \rule{4.5cm}{0.4pt}\\[0.15cm]
+        \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.05cm]
+        \small\textbf{2.} Markiere in den anderen Feldern: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
-    % Außenfeld 3 (Unten / Süd)
-    \node[anchor=south, text width=16cm, align=center, font=\sffamily] at ([yshift=0.4cm]current page.south) {
-        \textbf{\color{primaryBlue}Außenfeld 3 (Schüler/in C):} Name: \rule{4cm}{0.4pt} \quad \textbf{5--8 zentrale Begriffe}\\[0.1cm]
-        \tiny\color{gray}1. Schreibe für dich 5--8 zentrale Begriffe auf. \quad 2. Lies danach die Felder der anderen und markiere: \textbf{!} = tragend, \textbf{?} = unklar.
-    };
-
-    % Außenfeld 4 (Links / West - gedreht)
-    \node[anchor=center, rotate=-90, text width=12cm, align=center, font=\sffamily] at ([xshift=1.6cm]current page.west) {
-        \textbf{\color{primaryBlue}Außenfeld 4 (Schüler/in D):} Name: \rule{4cm}{0.4pt}\\[0.05cm]
-        \textbf{5--8 zentrale Begriffe} (! = tragend, ? = unklar)\\[0.1cm]
-        \tiny\color{gray}1. Schreibe 5--8 Begriffe auf. \quad 2. Lies die Felder der anderen und markiere [ ! ] oder [ ? ].
+    % --- FELD 3: UNTEN RECHTS (Polygon) ---
+    \node[anchor=north west, text width=16.5cm, align=left, font=\sffamily] at ([xshift=0.8cm, yshift=-0.4cm]IBC) {
+        \textbf{\color{primaryBlue}\large Außenfeld 3 (Schüler/in C)} \quad Name: \rule{4.5cm}{0.4pt}\\[0.15cm]
+        \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.05cm]
+        \small\textbf{2.} Markiere in den anderen Feldern: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
 \end{tikzpicture}

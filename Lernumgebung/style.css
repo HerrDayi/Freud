@@ -25,8 +25,8 @@
     
     --line-num-color: #94a3b8;
     
-    --font-sans: 'Carlito', 'Calibri', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-serif: 'Libertinus Serif', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Calibri', 'Carlito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Calibri', 'Carlito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
     
     --text-scale: 1rem;
@@ -781,4 +781,271 @@ body.dark-mode .placemat-svg-wrapper {
     max-height: 480px;
     display: block;
 }
+
+/* ==========================================================================
+   Schnell-Download-Leiste
+   ========================================================================== */
+.quick-downloads-bar {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--shadow-sm);
+}
+
+.dl-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--light-blue);
+    border: 1px solid var(--border-color);
+    color: var(--primary-blue);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.dl-chip:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-accent);
+    color: var(--primary-accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.dl-chip.ao {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+
+.dl-chip.ao:hover {
+    background: #dbeafe;
+}
+
+body.dark-mode .quick-downloads-bar {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .dl-chip {
+    background: #1e293b;
+    border-color: #334155;
+    color: #93c5fd;
+}
+
+body.dark-mode .dl-chip:hover {
+    background: #334155;
+    border-color: #60a5fa;
+    color: #ffffff;
+}
+
+body.dark-mode .dl-chip.ao {
+    background: #1e3a8a;
+    border-color: #2563eb;
+    color: #bfdbfe;
+}
+
+/* ==========================================================================
+   Interaktives Scaffolding: Sinnabschnitte & Zwischenüberschriften
+   ========================================================================== */
+.scaffolding-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.scaffolding-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.toggle-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-label {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.scaffolding-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--light-blue);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.switch input:checked + .slider {
+    background-color: var(--primary-accent);
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+body.dark-mode .slider {
+    background-color: #475569;
+}
+
+body.dark-mode .switch input:checked + .slider {
+    background-color: #2563eb;
+}
+
+/* Overview Cards */
+.sections-overview {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+.section-badge-item {
+    background: var(--light-blue);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: var(--transition-base);
+}
+
+.section-badge-item:hover {
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+}
+
+.section-badge-item.sec-1 {
+    border-left: 4px solid #0284c7;
+}
+
+.section-badge-item.sec-2 {
+    border-left: 4px solid #d97706;
+}
+
+.section-badge-item.sec-3 {
+    border-left: 4px solid #7c3aed;
+}
+
+.badge-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-accent);
+}
+
+.badge-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+}
+
+.badge-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+/* In-Text Headings */
+.section-heading-wrapper {
+    margin: 24px 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: fadeIn 0.3s ease;
+}
+
+.section-chip {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: var(--light-blue);
+    color: var(--primary-accent);
+    border: 1px solid var(--border-color);
+}
+
+.section-heading {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin: 0;
+    line-height: 1.35;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigmund Freud: Das Unbehagen in der Kultur (1930) – Interaktive Texterschließung & Hilfsumgebung</title>
-    <!-- Google Fonts: Carlito & Inter -->
+    <title>Sigmund Freud: Das Unbehagen in der Kultur (1930) – Digitale Lernumgebung</title>
+    <!-- Google Fonts: Carlito (metric-compatible drop-in for Calibri) & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,15 +37,32 @@
             </div>
         </header>
 
+        <!-- Schnell-Download-Leiste -->
+        <nav class="quick-downloads-bar" aria-label="Schnell-Downloads">
+            <span style="font-weight: 700; color: var(--primary-blue); font-size: 0.85rem; margin-right: 4px;">📥 Materialien:</span>
+            <a href="Arbeitsblatt_Freud.pdf" download class="dl-chip" title="Arbeitsblatt herunterladen">
+                📄 Arbeitsblatt (PDF)
+            </a>
+            <a href="Placemat_Freud.pdf" download class="dl-chip" title="Placemat A3 herunterladen">
+                🗺️ Placemat A3 (PDF)
+            </a>
+            <a href="praesentation_freud.pdf" download class="dl-chip" title="Präsentation herunterladen">
+                📽️ Präsentation (PDF)
+            </a>
+            <a href="https://herrdayi.github.io/AO/" target="_blank" rel="noopener noreferrer" class="dl-chip ao" title="Zum digitalen Advanced Organizer">
+                🧭 Advanced Organizer ↗
+            </a>
+        </nav>
+
         <!-- Top Navigation (3 Tabs) -->
         <nav class="top-chapter-nav" aria-label="Navigation">
             <button class="chap-tab-btn active" data-chap-tab="text">
                 <span class="step-num">Tab 1</span>
-                <span class="step-label">📖 Text & Worterläuterungen</span>
+                <span class="step-label">📖 Text & Begriffserklärungen</span>
             </button>
             <button class="chap-tab-btn" data-chap-tab="hilfe">
                 <span class="step-num">Tab 2</span>
-                <span class="step-label">🧩 Strukturlegetechnik & Stufenhilfen</span>
+                <span class="step-label">🧩 Strukturlegetechnik & Placemat</span>
             </button>
             <button class="chap-tab-btn" data-chap-tab="einstieg">
                 <span class="step-num">Tab 3</span>
@@ -57,7 +74,7 @@
         <main class="app-content-full">
 
             <!-- =============================================================== -->
-            <!-- TAB 1: TEXT & GLOSSAR                                          -->
+            <!-- TAB 1: TEXT & BEGRIFFSERKLÄRUNGEN                               -->
             <!-- =============================================================== -->
             <div class="chap-panel active" id="chap-panel-text">
 
@@ -68,13 +85,13 @@
                             <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                             </svg>
-                            <h2>Worterklärungen & Psychoanalytische Leitbegriffe</h2>
+                            <h2>Begriffserklärungen & Psychoanalytische Leitbegriffe</h2>
                         </div>
-                        <span class="vocab-hint-badge">Klick auf blau markierte Begriffe</span>
+                        <span class="vocab-hint-badge">Klick auf blau markierte Begriffe im Text</span>
                     </div>
                     <div class="card-body">
                         <div id="vocab-placeholder" class="placeholder-box">
-                            Klicke auf einen <span class="vocab-inline-example">blau unterstrichenen Fachbegriff</span> im Text, um Erklärung, psychoanalytische Bedeutung und Freuds Argumentationszusammenhang einzublenden.
+                            Klicke auf einen <span class="vocab-inline-example">blau unterstrichenen Fachbegriff</span> im Text oder im Begriffspool, um die Erklärung und Freuds Argumentationszusammenhang einzublenden.
                         </div>
                         <div id="vocab-content" class="vocab-display hidden">
                             <div class="vocab-header-row">
@@ -90,30 +107,68 @@
                     </div>
                 </div>
 
-                <!-- Textbereich mit Gliederung und Zeilennummern -->
+                <!-- Interaktiver Schalter für Sinnabschnitte & Zwischenüberschriften -->
+                <div class="scaffolding-box">
+                    <div class="scaffolding-header">
+                        <label class="toggle-wrapper" for="toggle-sections">
+                            <span class="switch">
+                                <input type="checkbox" id="toggle-sections">
+                                <span class="slider"></span>
+                            </span>
+                            <span class="toggle-label"><strong>Sinnabschnitte & Zwischenüberschriften anzeigen</strong> (Gliederungshilfe)</span>
+                        </label>
+                        <span class="scaffolding-hint">💡 Auf dem Arbeitsblatt für die eigene Textanalyse weggelassen – hier interaktiv zuschaltbar!</span>
+                    </div>
+                    
+                    <div id="sections-overview" class="sections-overview hidden">
+                        <div class="section-badge-item sec-1">
+                            <span class="badge-tag">Abschnitt 1 · Zeilen 1–18</span>
+                            <span class="badge-title">I. Die anthropologische Ausgangslage: Der Mensch als Triebwesen</span>
+                            <p class="badge-desc">Der Mensch trägt einen mächtigen Anteil von Aggressionsneigung in sich (<em>Homo homini lupus</em>). Kultur ist durch diese Feindseligkeit dauerhaft vom Zerfall bedroht.</p>
+                        </div>
+                        <div class="section-badge-item sec-2">
+                            <span class="badge-tag">Abschnitt 2 · Zeilen 19–35</span>
+                            <span class="badge-title">II. Die kulturelle Gegenwehr: Triebverzicht und Liebesgebot</span>
+                            <p class="badge-desc">Kultur bezwingt Aggression durch psychische Reaktionsbildungen und das Idealgebot der Nächstenliebe wider die Natur. Tausch von Glück gegen Sicherheit.</p>
+                        </div>
+                        <div class="section-badge-item sec-3">
+                            <span class="badge-tag">Abschnitt 3 · Zeilen 36–49</span>
+                            <span class="badge-title">III. Die seelische Verinnerlichung: Introjektion, Über-Ich und Schuld</span>
+                            <p class="badge-desc">Die Aggression wird nach innen gewendet (<em>Introjektion</em>) und überwacht als <em>Über-Ich</em> („Besatzungsmacht“) das eigene Ich. Der Preis ist permanentes Schuldbewusstsein.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Textbereich mit zuschaltbaren Überschriften und Zeilennummern -->
                 <article class="philosophical-text">
                     
-                    <h3 style="color: var(--primary-blue); font-size: 1.05rem; margin-bottom: 8px; font-family: var(--font-sans);">
-                        I. Die anthropologische Ausgangslage: Der Mensch als Triebwesen
-                    </h3>
-                    <div class="text-paragraph">
-                        <span class="line-counter">1<br>5<br>10</span>
+                    <!-- Zwischenüberschrift 1 (zuschaltbar) -->
+                    <div class="section-heading-wrapper hidden" data-section="1">
+                        <span class="section-chip">Abschnitt 1 · Z. 1–18</span>
+                        <h3 class="section-heading">I. Die anthropologische Ausgangslage: Der Mensch als Triebwesen</h3>
+                    </div>
+                    <div class="text-paragraph" data-sec-p="1">
+                        <span class="line-counter">1<br>5<br>10<br>15</span>
                         „Der Mensch ist eben nicht ein sanftes, liebebedürftiges Wesen, das sich höchstens, wenn angegriffen, zu erwehren vermag, sondern er darf unter seinen <span class="vocab-term" data-term="Triebbegabung / Aggressionsneigung">Triebbegabungen</span> auch einen mächtigen Anteil von <span class="vocab-term" data-term="Triebbegabung / Aggressionsneigung">Aggressionsneigung</span> rechnen. Infolgedessen ist ihm der Nächste nicht nur möglicher Helfer und Sexualobjekt, sondern auch eine Versuchung, seine Aggression an ihm zu befriedigen, seine Arbeitskraft ohne Entschädigung auszunützen, ihn ohne seine Einwilligung sexuell zu gebrauchen, sich in den Besitz seiner Habe zu setzen, ihn zu demütigen, ihm Schmerzen zu bereiten, ihn zu martern und zu töten. <span class="vocab-term" data-term="Homo homini lupus">Homo homini lupus</span>; wer hat nach allen Erfahrungen des Lebens und der Geschichte den Mut, diesen Satz zu bestreiten? […] Das Dasein dieser Aggressionsneigung […] stört unser Verhältnis zum Nächsten und nötigt die Kultur zu ihrem Aufwand. Infolge dieser primären Feindseligkeit der Menschen gegeneinander ist die Kulturgesellschaft beständig vom Zerfall bedroht.“
                     </div>
 
-                    <h3 style="color: var(--primary-blue); font-size: 1.05rem; margin-top: 24px; margin-bottom: 8px; font-family: var(--font-sans);">
-                        II. Die kulturelle Gegenwehr: Triebverzicht und Liebesgebot
-                    </h3>
-                    <div class="text-paragraph">
-                        <span class="line-counter">15<br>20<br>25</span>
+                    <!-- Zwischenüberschrift 2 (zuschaltbar) -->
+                    <div class="section-heading-wrapper hidden" data-section="2">
+                        <span class="section-chip">Abschnitt 2 · Z. 19–35</span>
+                        <h3 class="section-heading">II. Die kulturelle Gegenwehr: Triebverzicht und Liebesgebot</h3>
+                    </div>
+                    <div class="text-paragraph" data-sec-p="2">
+                        <span class="line-counter">20<br>25<br>30<br>35</span>
                         „Die Kultur muss alles aufbieten, um den Aggressionstrieben der Menschen Schranken zu setzen, ihre Äußerungen durch psychische <span class="vocab-term" data-term="Reaktionsbildungen">Reaktionsbildungen</span> niederzuhalten. Daher also das Aufgebot von Methoden, welche die Menschen zu Identifizierungen und zielgehemmten Liebesbeziehungen antreiben sollen, daher die Einschränkung des Sexuallebens und daher auch das <span class="vocab-term" data-term="Idealgebot (Nächstenliebe)">Idealgebot, den Nächsten so zu lieben wie sich selbst</span>, das sich ja wirklich dadurch rechtfertigt, dass nichts anderes der ursprünglichen Menschennatur so sehr widerspricht. […] Der Kulturmensch hat für <span class="vocab-term" data-term="Eintausch (Glück gegen Sicherheit)">ein Stück Glücksmöglichkeit ein Stück Sicherheit eingetauscht</span>. […] Das Zusammenleben der Menschen wird eben erst ermöglicht, wenn sich eine Mehrheit zusammenfindet, die stärker ist als jeder Einzelne und gegen jeden Einzelnen zusammenhält.“
                     </div>
 
-                    <h3 style="color: var(--primary-blue); font-size: 1.05rem; margin-top: 24px; margin-bottom: 8px; font-family: var(--font-sans);">
-                        III. Die seelische Verinnerlichung: Introjektion, Über-Ich und Schuld
-                    </h3>
-                    <div class="text-paragraph">
-                        <span class="line-counter">30<br>35<br>40</span>
+                    <!-- Zwischenüberschrift 3 (zuschaltbar) -->
+                    <div class="section-heading-wrapper hidden" data-section="3">
+                        <span class="section-chip">Abschnitt 3 · Z. 36–49</span>
+                        <h3 class="section-heading">III. Die seelische Verinnerlichung: Introjektion, Über-Ich und Schuld</h3>
+                    </div>
+                    <div class="text-paragraph" data-sec-p="3">
+                        <span class="line-counter">40<br>45<br>49</span>
                         „Was geschieht im Individuum, um seine Aggressionslust unschädlich zu machen? […] Die Aggression wird <span class="vocab-term" data-term="Introjektion (Verinnerlichung)">introjeziert, verinnerlicht</span>, sie wird eigentlich dorthin zurückgeschickt, woher sie gekommen ist, also gegen das eigene Ich gewendet. Dort wird sie von einem Teil des Ichs übernommen, der sich als <span class="vocab-term" data-term="Über-Ich (das „Gewissen“)">Über-Ich</span> dem übrigen gegenüberstellt, und nun als »Gewissen« gegen das Ich dieselbe strenge Aggressionsbereitschaft ausübt, die das Ich gerne an anderen, fremden Individuen befriedigt hätte. Die Spannung zwischen dem strengen Über-Ich und dem ihm unterworfenen Ich heißen wir <span class="vocab-term" data-term="Schuldbewusstsein & Strafbedürfnis">Schuldbewusstsein</span>; es äußert sich als <span class="vocab-term" data-term="Schuldbewusstsein & Strafbedürfnis">Strafbedürfnis</span>. Die Kultur bezwingt also die gefährliche Aggressionslust des Individuums, indem sie es schwächt, entwaffnet und durch eine Instanz in seinem Innern, wie durch eine <span class="vocab-term" data-term="„Besatzung in der eroberten Stadt“">Besatzung in der eroberten Stadt</span>, überwachen lässt.“
                     </div>
 
@@ -124,7 +179,7 @@
             </div>
 
             <!-- =============================================================== -->
-            <!-- TAB 2: STRUKTURLEGETECHNIK & STUFENHILFEN                      -->
+            <!-- TAB 2: STRUKTURLEGETECHNIK & PLACEMAT                           -->
             <!-- =============================================================== -->
             <div class="chap-panel" id="chap-panel-hilfe">
 
@@ -140,54 +195,50 @@
                     <div class="hierarchy-flow" style="margin-top: 8px;">
                         <div class="flow-step">
                             <span class="flow-step-num">Schritt 1 (Einzelarbeit im Außenfeld)</span>
-                            <div class="flow-step-title">Schlüsselbegriffe isolieren</div>
-                            <p class="flow-step-desc">Schreibt jede/r für sich <strong>5–8 zentrale Schlüsselbegriffe</strong> in euer Außenfeld auf dem Placemat.</p>
+                            <div class="flow-step-title">Schlüsselbegriffe notieren</div>
+                            <p class="flow-step-desc">Schreibt jede/r für sich <strong>5–8 zentrale Begriffe</strong> in euer eigenes Außenfeld auf dem Placemat.</p>
                         </div>
                         <div class="flow-step">
-                            <span class="flow-step-num">Schritt 2 (Kooperativer Abgleich)</span>
+                            <span class="flow-step-num">Schritt 2 (Kooperativer Check)</span>
                             <div class="flow-step-title">Begriffe lesen & kennzeichnen</div>
-                            <p class="flow-step-desc">Lest reihum die Begriffe der anderen Gruppenmitglieder in deren Feldern und kennzeichnet sie mit <strong>!</strong> (zentral/tragend) oder <strong>?</strong> (unklar/erklärungsbedürftig).</p>
+                            <p class="flow-step-desc">Lest reihum die Begriffe in den Feldern der anderen und markiert mit <strong>!</strong> (tragend/zentral) oder <strong>?</strong> (unklar/diskussionsbedürftig).</p>
                         </div>
                         <div class="flow-step">
-                            <span class="flow-step-num">Schritt 3 (Team-Entscheidung)</span>
+                            <span class="flow-step-num">Schritt 3 (Team-Einigung)</span>
                             <div class="flow-step-title">Einigung auf 5 Kernbegriffe</div>
                             <p class="flow-step-desc">Tauscht euch im Team aus und einigt euch gemeinsam auf die <strong>5 wichtigsten Kernbegriffe</strong>.</p>
                         </div>
                         <div class="flow-step">
-                            <span class="flow-step-num">Schritt 4 (Strukturlegen im Mittelfeld)</span>
-                            <div class="flow-step-title">Ober- & Unterbegriffe / Wirkungsgefüge</div>
-                            <p class="flow-step-desc">Legt die Begriffe im Mittelfeld aus und ordnet sie nach <strong>Ober- und Unterbegriffen</strong> bzw. als Kausalkette (mit beschrifteten Pfeilen: $\rightarrow$, $\leftrightarrow$).</p>
+                            <span class="flow-step-num">Schritt 4 (Mittelfeld strukturieren)</span>
+                            <div class="flow-step-title">Ober- & Unterbegriffe / Pfeilverbindungen</div>
+                            <p class="flow-step-desc">Legt die Begriffe im Mittelfeld aus und ordnet sie nach <strong>Ober- und Unterbegriffen</strong> bzw. Wirkungszusammenhängen mit beschrifteten Pfeilen.</p>
                         </div>
                     </div>
-                <!-- Digitale Placemat Vorlage -->
+                </div>
+
+                <!-- Interaktive Placemat-Vorschau -->
                 <div class="help-card">
-                    <div class="help-card-header" style="justify-content: space-between; flex-wrap: wrap;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <span class="help-badge">Vorlage</span>
-                            <h2 class="help-card-title">Placemat-Vorlage (3er-Gruppe)</h2>
-                        </div>
-                        <a href="Placemat_Freud.pdf" target="_blank" class="download-btn">
-                            📥 Placemat als PDF öffnen / in GoodNotes laden
-                        </a>
+                    <div class="help-card-header">
+                        <span class="help-badge">Placemat-Vorschau (A3)</span>
+                        <h3 class="help-card-title">Struktur des Placemats</h3>
                     </div>
                     <p class="guide-desc">
-                        Hier seht ihr den Aufbau eures Placemats. Jede/r Schüler/in nutzt ihr/sein Außenfeld; in der Mitte entsteht eure gemeinsame Struktur:
+                        Hier seht ihr den Aufbau eures Placemats. Jede/r nutzt ihr/sein Außenfeld; in der Mitte entsteht eure gemeinsame Struktur:
                     </p>
-                    <div class="placemat-svg-wrapper">
-                        <svg viewBox="0 0 960 630" xmlns="http://www.w3.org/2000/svg" style="font-family: sans-serif;">
-                            <!-- Outer Frame -->
-                            <rect x="10" y="10" width="940" height="610" fill="#f8fafc" stroke="#143264" stroke-width="4" rx="4"/>
+                    <div class="placemat-svg-container" style="margin-top: 10px; background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 12px; display: flex; justify-content: center;">
+                        <svg viewBox="0 0 960 620" width="100%" style="max-width: 820px; height: auto;" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Outer Box -->
+                            <rect x="10" y="10" width="940" height="600" fill="#ffffff" stroke="#143264" stroke-width="4"/>
                             
-                            <!-- Inner Box (Center) -->
-                            <rect x="250" y="170" width="460" height="280" fill="#eff6ff" stroke="#143264" stroke-width="3" rx="4"/>
+                            <!-- Inner Box (Center Field) -->
+                            <rect x="230" y="170" width="500" height="280" fill="#f5f8fd" stroke="#143264" stroke-width="4"/>
                             
-                            <!-- Connecting Lines -->
-                            <!-- Top-Left Diagonal -->
-                            <line x1="10" y1="10" x2="250" y2="170" stroke="#143264" stroke-width="3"/>
-                            <!-- Top-Right Diagonal -->
-                            <line x1="950" y1="10" x2="710" y2="170" stroke="#143264" stroke-width="3"/>
-                            <!-- Bottom Center Vertical -->
-                            <line x1="480" y1="450" x2="480" y2="620" stroke="#143264" stroke-width="3"/>
+                            <!-- Diagonal lines -->
+                            <line x1="10" y1="10" x2="230" y2="170" stroke="#143264" stroke-width="3"/>
+                            <line x1="950" y1="10" x2="730" y2="170" stroke="#143264" stroke-width="3"/>
+                            
+                            <!-- Bottom center vertical line -->
+                            <line x1="480" y1="450" x2="480" y2="610" stroke="#143264" stroke-width="3"/>
                             
                             <!-- Texts -->
                             <!-- Top Field (Trapezoid): Field 1 -->
@@ -211,87 +262,41 @@
                     </div>
                 </div>
 
-                <div class="help-grid">
-                    <!-- Hilfe 1: Begriffspool / Scaffolding -->
-                    <div class="help-card">
-                        <div class="help-card-header">
-                            <span class="help-badge">Stufenhilfe 1</span>
-                            <h3 class="help-card-title">Wortspeicher (Begriffsauswahl)</h3>
-                        </div>
-                        <p class="guide-desc">Klicke auf einen Begriff, um ihn im Glossar (Tab 1) nachzuschlagen:</p>
-                        <div class="tag-cloud">
-                            <span class="term-tag core" data-term="Triebbegabung / Aggressionsneigung">Aggressionsneigung (!)</span>
-                            <span class="term-tag core" data-term="Homo homini lupus">Homo homini lupus</span>
-                            <span class="term-tag" data-term="Reaktionsbildungen">Reaktionsbildung</span>
-                            <span class="term-tag" data-term="Idealgebot (Nächstenliebe)">Nächstenliebe-Gebot</span>
-                            <span class="term-tag core" data-term="Eintausch (Glück gegen Sicherheit)">Glück vs. Sicherheit (!)</span>
-                            <span class="term-tag core" data-term="Introjektion (Verinnerlichung)">Introjektion (!)</span>
-                            <span class="term-tag core" data-term="Über-Ich (das „Gewissen“)">Über-Ich / Gewissen (!)</span>
-                            <span class="term-tag core" data-term="Schuldbewusstsein & Strafbedürfnis">Schuldbewusstsein (!)</span>
-                            <span class="term-tag" data-term="„Besatzung in der eroberten Stadt“">Besatzungsmacht</span>
-                        </div>
-                    </div>
-
-                    <!-- Hilfe 2: Kausale Rangordnung / Stationen -->
-                    <div class="help-card">
-                        <div class="help-card-header">
-                            <span class="help-badge">Stufenhilfe 2</span>
-                            <h3 class="help-card-title">Hilfe zum Strukturlegen (Mittelfeld)</h3>
-                        </div>
-                        <div class="hierarchy-flow">
-                            <div class="flow-step">
-                                <span class="flow-step-num">Oberbegriff 1: Naturzustand</span>
-                                <div class="flow-step-title">Biologische Triebbegabung (Aggression)</div>
-                            </div>
-                            <div class="flow-step">
-                                <span class="flow-step-num">Oberbegriff 2: Kulturordnung</span>
-                                <div class="flow-step-title">Triebverzicht, Zwang & Liebesgebot</div>
-                            </div>
-                            <div class="flow-step">
-                                <span class="flow-step-num">Oberbegriff 3: Seelischer Preis</span>
-                                <div class="flow-step-title">Introjektion $\rightarrow$ Über-Ich $\rightarrow$ Schuldgefühl</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Schnelldenker Golden Record -->
+                <!-- Stufenhilfe: Begriffspool -->
                 <div class="help-card">
                     <div class="help-card-header">
-                        <span class="help-badge">Schnelldenker</span>
-                        <h3 class="help-card-title">Golden Record Transfer</h3>
+                        <span class="help-badge">Wortspeicher</span>
+                        <h3 class="help-card-title">Begriffspool (Klick zum Nachschlagen)</h3>
                     </div>
-                    <p class="guide-desc">
-                        Wählt ein beliebiges Bild aus der <em>Voyager Golden Record</em> (z. B. Familie, Wettlauf, Großstadt, Industrie).<br>
-                        <strong>Fragestellung:</strong> Was würde Freud hinter der offiziell gezeigten Harmonie diagnostizieren? Welche verdrängten Triebe und welches seelische Unbehagen stecken in der Szene?
-                    </p>
+                    <p class="guide-desc">Klicke auf einen Begriff, um ihn direkt im Glossar nachzuschlagen:</p>
+                    <div class="tag-cloud">
+                        <span class="term-tag core" data-term="Triebbegabung / Aggressionsneigung">Aggressionsneigung (!)</span>
+                        <span class="term-tag core" data-term="Homo homini lupus">Homo homini lupus</span>
+                        <span class="term-tag" data-term="Reaktionsbildungen">Reaktionsbildung</span>
+                        <span class="term-tag" data-term="Idealgebot (Nächstenliebe)">Idealgebot (Nächstenliebe)</span>
+                        <span class="term-tag core" data-term="Eintausch (Glück gegen Sicherheit)">Tausch: Glück gegen Sicherheit (!)</span>
+                        <span class="term-tag core" data-term="Introjektion (Verinnerlichung)">Introjektion (Verinnerlichung) (!)</span>
+                        <span class="term-tag core" data-term="Über-Ich (das „Gewissen“)">Über-Ich („Gewissen“) (!)</span>
+                        <span class="term-tag core" data-term="Schuldbewusstsein & Strafbedürfnis">Schuldbewusstsein & Strafbedürfnis (!)</span>
+                        <span class="term-tag" data-term="„Besatzung in der eroberten Stadt“">„Besatzung in der eroberten Stadt“</span>
+                    </div>
                 </div>
-
             </div>
 
             <!-- =============================================================== -->
-            <!-- TAB 3: EINSTIEG: MEME & ZITATE                                 -->
+            <!-- TAB 3: EINSTIEG: MEME & ZITATE                                  -->
             <!-- =============================================================== -->
             <div class="chap-panel" id="chap-panel-einstieg">
 
+                <!-- Freud Meme Card -->
                 <div class="meme-card">
                     <div class="help-card-header">
                         <span class="help-badge">Einstiegsimpuls (Meme)</span>
-                        <h2 class="help-card-title">Der innere Richter: Leistungsdruck & schlechtes Gewissen</h2>
+                        <h2 class="help-card-title">Der innere Kritiker: Leistungsdruck & Über-Ich</h2>
                     </div>
 
-                    <div class="meme-illustration-box">
-                        <div class="meme-header">Typischer Sonntagabend im Leben eines Schülers / Studierenden:</div>
-                        <div class="meme-dialogue">
-                            <div class="dialogue-bubble ich">
-                                <strong>Ich (versucht sich 20 Minuten auf der Couch auszuruhen):</strong><br>
-                                „Endlich kurz Pause. Ich habe die ganze Woche gelernt.“
-                            </div>
-                            <div class="dialogue-bubble ueber-ich">
-                                <strong>Das innere Über-Ich (Gehirn mit rot glühenden Augen):</strong><br>
-                                „Pause?! Weißt du eigentlich, wie viel die anderen gerade lernen?! Du solltest für die Klausur büffeln, dein Workout durchziehen, deine 5-AM-Routine planen und dein Leben optimieren! Was bist du eigentlich für ein Versager?!“
-                            </div>
-                        </div>
+                    <div style="text-align: center; margin: 16px 0;">
+                        <img src="assets/freud_meme.jpg" alt="Freud Meme: Relaxing Student vs Their Brain" style="max-width: 100%; height: auto; border-radius: 10px; border: 1.5px solid var(--border-color); box-shadow: var(--shadow-md);">
                     </div>
 
                     <div class="meme-explanation">
@@ -300,38 +305,27 @@
                     </div>
                 </div>
 
+                <!-- Zitat Card -->
                 <div class="help-card featured">
                     <div class="help-card-header">
-                        <span class="help-badge">Einstiegs-Impuls</span>
+                        <span class="help-badge">Einstiegs-Impuls (Zitat)</span>
                         <h3 class="help-card-title">Das Unbehagen auf den Punkt gebracht</h3>
                     </div>
-                    <div class="quote-banner" style="font-size: 1.1rem; line-height: 1.6; background: #eff6ff; border-left: 4px solid #2563eb;">
+                    <div class="quote-banner" style="font-size: 1.1rem; line-height: 1.6; background: #eff6ff; border-left: 4px solid #2563eb; padding: 16px; border-radius: 6px;">
                         „Das Unbehagen – diese dumpfe Unzufriedenheit, dieses Gefühl, nie ganz genug zu sein – ist kein Fehler im System. Es ist das System. Wer in einer Gemeinschaft lebt, zahlt diesen Preis. Immer.“
-                        <div style="font-size: 0.82rem; color: var(--text-muted); font-style: normal; margin-top: 8px; font-weight: 600;">
-                            — Sigmund Freud, <em>Das Unbehagen in der Kultur</em> (1930)
+                        <div style="font-size: 0.85rem; color: var(--text-muted); font-style: normal; margin-top: 8px; font-weight: 600;">
+                            Sigmund Freud: <em>Das Unbehagen in der Kultur</em> (1930)
                         </div>
                     </div>
                 </div>
-
-                <div class="help-card">
-                    <div class="help-card-header">
-                        <span class="help-badge">Weitere Freud-Zitate</span>
-                        <h3 class="help-card-title">Klassische Kernzitate aus dem Text</h3>
-                    </div>
-                    <div class="quote-banner">
-                        „Der Kulturmensch hat für ein Stück Glücksmöglichkeit ein Stück Sicherheit eingetauscht.“
-                    </div>
-                    <div class="quote-banner" style="margin-top: 10px;">
-                        „Die Kultur bezwingt die gefährliche Aggressionslust des Individuums, indem sie es schwächt, entwaffnet und durch eine Instanz in seinem Innern, wie durch eine Besatzung in der eroberten Stadt, überwachen lässt.“
-                    </div>
-                </div>
-
             </div>
 
         </main>
 
+        <!-- Footer -->
         <footer class="app-footer">
-            Philosophie Q1 • Herr Dayi • Interaktive Lernumgebung zur philosophischen Anthropologie & Kulturphilosophie
+            <p>Philosophie Q1 • Unterrichtsreihe: Philosophische Anthropologie & Kulturphilosophie • Gymnasium</p>
+            <p><small>Texte nach Sigmund Freud (1930). Didaktisch aufbereitet von Herrn Dayi.</small></p>
         </footer>
 
     </div>

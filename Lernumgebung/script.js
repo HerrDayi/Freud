@@ -179,4 +179,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // =========================================================================
+    // 7. INTERAKTIVER SCHALTER: SINNABSCHNITTE & ZWISCHENÜBERSCHRIFTEN
+    // =========================================================================
+    const toggleSections = document.getElementById('toggle-sections');
+    const sectionsOverview = document.getElementById('sections-overview');
+    const sectionHeadings = document.querySelectorAll('.section-heading-wrapper');
+
+    if (toggleSections) {
+        toggleSections.addEventListener('change', (e) => {
+            const isChecked = e.target.checked;
+            if (sectionsOverview) {
+                if (isChecked) {
+                    sectionsOverview.classList.remove('hidden');
+                } else {
+                    sectionsOverview.classList.add('hidden');
+                }
+            }
+            sectionHeadings.forEach(wrapper => {
+                if (isChecked) {
+                    wrapper.classList.remove('hidden');
+                } else {
+                    wrapper.classList.add('hidden');
+                }
+            });
+        });
+    }
+
 });
+

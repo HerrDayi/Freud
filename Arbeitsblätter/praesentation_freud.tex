@@ -1,0 +1,295 @@
+\documentclass{beamer}
+
+% ==================================================
+% Sprache & Theme
+% ==================================================
+\usepackage[ngerman]{babel}
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{frame numbering}[fraction]
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\usefonttheme{metropolis}
+\usecolortheme{spruce}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamertemplate{footline}{}
+
+% ==================================================
+% Pakete
+% ==================================================
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{emoji}
+\usepackage{fontawesome5}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% ==================================================
+% Farben & Blockdesign
+% ==================================================
+\definecolor{hotpink}{rgb}{1.0, 0.41, 0.71}
+\definecolor{alertred}{HTML}{C0392B}
+\definecolor{primaryBlue}{RGB}{20,50,100}
+
+% ==================================================
+% Schriftarten & Makros
+% ==================================================
+\setmainfont{Noto Sans}
+\newfontfamily\emojifont{Noto Color Emoji}
+
+\newcommand{\runningMan}{%
+\begin{tikzpicture}[scale=0.2, baseline=-1mm, thick]
+    \draw (0,1) circle (0.4); 
+    \draw (0,0.6) -- (0,-0.2); 
+    \draw (0,0.4) -- (-0.6,0); 
+    \draw (0,0.4) -- (0.6,0.8); 
+    \draw (0,-0.2) -- (-0.5,-0.8); 
+    \draw (0,-0.2) -- (0.5,0); \draw (0.5,0) -- (0.8,-0.8); 
+\end{tikzpicture}}
+
+\title{Guten Morgen :)}
+\subtitle{Schön, dass ihr da seid!}
+\author{Herr \textbf{Dayi}}
+\institute{Philosophie Q1}
+\date{}
+
+\begin{document}
+\metroset{block=fill}
+
+% ==================================================
+% 0. Startfolie
+% ==================================================
+\begin{frame}[t]{Thema: Das Unbehagen in der Kultur}
+\centering{
+  \vspace{2cm}
+  {\Huge Guten Morgen \emoji{sunny} \\[0.3cm]}
+  {\Large Schön, dass Ihr da seid! \\[1cm]}
+  \vspace{1cm}
+  {\normalsize Herr \textbf{Dayi} \\ Philosophie Q1}}
+\end{frame}
+
+% ==================================================
+% Agenda: Heutiger Plan
+% ==================================================
+\setbeamercovered{transparent}
+\begin{frame}[t]{Heutiger Plan \emoji{bullseye}}
+\vspace*{0.4cm}
+\begin{itemize}
+    \setlength{\itemsep}{10pt}
+    
+    \item<1->[1.] \textbf{\emoji{thought-balloon} Einstieg: Das Phänomen des Unbehagens}
+    
+    \item<2->[2.] \textbf{\emoji{link} Reaktivierung: Gehlens Schutzversprechen}
+    
+    \item<3->[3.] \textbf{\emoji{puzzle-piece} Erarbeitung: Strukturlegetechnik (Placemat)}
+    
+    \item<4->[4.] \textbf{\emoji{open-book} Unser Wissensspeicher}
+    
+    \item<5->[5.] \textbf{\emoji{feather} Synthese: Freud in einem Satz \& Advanced Organizer}
+    
+    \item<6->[6.] \textbf{\emoji{satellite-antenna} Vertiefung: Die Voyager Golden Record}
+    
+    \item<7->[7.] \textbf{\emoji{ticket} Check-Out}
+    
+\end{itemize}
+\setbeamercovered{invisible}
+\end{frame}
+
+% ==================================================
+% 1. Einstieg: Zitat & Leitfrage
+% ==================================================
+\begin{frame}[t]{\faQuoteLeft \enskip 1. Einstieg: Das Phänomen des Unbehagens}
+\vspace{0.4cm}
+
+\begin{itemize}
+    \item [] \Large \glqq\textit{Das Unbehagen -- diese dumpfe Unzufriedenheit, dieses Gefühl, nie ganz genug zu sein -- ist kein Fehler im System. Es ist das System. Wer in einer Gemeinschaft lebt, zahlt diesen Preis. Immer.}\grqq
+\end{itemize}
+
+\vspace{0.8cm}
+
+\begin{itemize}
+    \item [] \Large \textbf{\faQuestionCircle \enskip Leitfrage unserer Stunde:}
+    \vspace{0.3cm}
+    \begin{itemize}
+        \item \normalsize Welchen seelischen Preis zahlen wir für das Zusammenleben in Zivilisation und Kultur?
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% ==================================================
+% 2. Reaktivierung: Arnold Gehlen
+% ==================================================
+\begin{frame}[t]{\faHistory \enskip 2. Reaktivierung: Gehlens Schutzversprechen}
+\vspace{0.3cm}
+
+\begin{itemize}
+    \item [] \Large \textbf{\faCompass \enskip Rückblick: Arnold Gehlen (1940)}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item \normalsize Kultur als existenzielle \textbf{Notwendigkeit} für das biologische Mängelwesen.
+        \item \normalsize Institutionen bieten Verhaltenssicherheit und unverzichtbare \textbf{Entlastung}.
+    \end{itemize}
+    
+    \vspace{0.7cm}
+    
+    \item [] \Large \textbf{\faBolt \enskip Freuds kritischer Verdacht (1930)}
+    \vspace{0.2cm}
+    \begin{itemize}
+        \item \normalsize Entlastet Kultur wirklich nur -- oder fordert sie einen schmerzhaften \textbf{Triebverzicht}, der die menschliche Psyche dauerhaft belastet?
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% ==================================================
+% 3. Erarbeitung: Strukturlegetechnik auf dem Placemat
+% ==================================================
+\begin{frame}[t]{\faSearch \enskip 3. Erarbeitung: Freuds Argumentationsgang}
+\vspace{-0.1cm}
+
+\begin{itemize}
+    \item []\textbf{\faPen \enskip Aufgabe 1 (Placemat \& Strukturlegetechnik):} \newline
+    \small
+    Erschließt Freuds Argumentation arbeitsteilig auf eurem Placemat:
+    \begin{itemize}\setlength{\itemsep}{1pt}
+        \item[-] \textbf{Außenfeld (EA):} Abschnitte I--III lesen $\rightarrow$ \textbf{5--8 Schlüsselbegriffe} notieren.
+        \item[-] \textbf{Team-Check (GA):} Reihum Begriffe lesen \& kennzeichnen (\textbf{!} = zentral, \textbf{?} = unklar).
+        \item[-] \textbf{Mittelfeld (Team):} Auf \textbf{5 Kernbegriffe} einigen und sachlogisch anordnen (Ober-/Unterbegriffe \& Pfeilverknüpfungen).
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.15cm}
+
+\begin{itemize}
+    \item []\textbf{\faUsers \enskip Sozialform:} EA $\rightarrow$ 3er-Teams \quad \textbf{\faClock \enskip Zeit:} ca. 25 Min.
+\end{itemize}
+
+\vspace{0.2cm}
+\scriptsize
+
+\begin{itemize}
+   \item[] \runningMan \, \textbf{Sprinter-Aufgabe:} \newline
+   Formuliert auf Seite 2 bereits euren Mustersatz für Aufgabe 2 a) (\textit{Freud in einem Satz})!
+\end{itemize}
+\end{frame}
+
+% ==================================================
+% 4. Unser Wissensspeicher (Leer für Foto)
+% ==================================================
+\begin{frame}[t]{4. Unser Wissensspeicher \emoji{open-book}}
+\vspace{0.4cm}
+
+% Hier Foto vom Wissensspeicher einfügen / Freiraum für das gemeinsame Tafelbild
+
+\end{frame}
+
+% ==================================================
+% 4b. Wissensspeicher: Systematisierung (Muster)
+% ==================================================
+\begin{frame}[t]{\faProjectDiagram \enskip 4. Sicherung: Freuds Gedankenarchitektur}
+\vspace{0.3cm}
+
+\centering
+\resizebox{0.95\linewidth}{!}{%
+\begin{tikzpicture}[
+    box/.style={draw=primaryBlue, thick, fill=white, rounded corners=3pt, font=\scriptsize\bfseries, align=center, inner sep=4pt, text width=2.1cm}
+]
+    \node[box] (n1) {\textbf{Triebbegabung}\\[2pt]{\tiny Aggression / Lust\\ \textit{Homo homini lupus}}};
+    \node[box, right=0.3cm of n1] (n2) {\textbf{Kulturanspruch}\\[2pt]{\tiny Schutz vor Zerfall\\ Liebesgebot}};
+    \node[box, right=0.3cm of n2] (n3) {\textbf{Triebverzicht}\\[2pt]{\tiny Unterdrückung\\ Reaktionsbildung}};
+    \node[box, right=0.3cm of n3] (n4) {\textbf{Introjektion}\\[2pt]{\tiny Verinnerlichung\\ Über-Ich als Wächter}};
+    \node[box, right=0.3cm of n4] (n5) {\textbf{Unbehagen}\\[2pt]{\tiny Schuldbewusstsein\\ Strafbedürfnis}};
+
+    \draw[->, thick, primaryBlue] (n1) -- (n2);
+    \draw[->, thick, primaryBlue] (n2) -- (n3);
+    \draw[->, thick, primaryBlue] (n3) -- (n4);
+    \draw[->, thick, primaryBlue] (n4) -- (n5);
+\end{tikzpicture}%
+}
+
+\vspace{0.4cm}
+
+\begin{itemize}
+    \item [] \textbf{\faKey \enskip Die psychoanalytische Einsicht:}
+    \vspace{0.15cm}
+    \begin{itemize}
+        \item \normalsize Kultur bezwingt Aggression durch \textbf{Verinnerlichung} (\textit{Introjektion}):
+        \item \normalsize Die Aggression richtet sich als \textbf{Über-Ich} (\glqq Besatzungsmacht\grqq) gegen das eigene Ich.
+        \item \normalsize Der Preis für Sicherheit und Zivilisation ist permanentes \textbf{Schuldbewusstsein}.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+% ==================================================
+% 5. Synthese: Freud in einem Satz & Advanced Organizer
+% ==================================================
+\begin{frame}[t]{\faFeather* \enskip 5. Synthese: Freud in einem Satz}
+\vspace{0.15cm}
+
+\begin{itemize}
+    \item []\textbf{\faPen \enskip Aufgabe 2 (Synthese \& Transfer):} \newline
+    \small
+    Verdichtet Freuds Position und verortet ihn im Gesamtzusammenhang:
+    \begin{itemize}\setlength{\itemsep}{2pt}
+        \item[-] \textbf{a) Freud in einem Satz:} Formuliert Freuds Kulturkritik in \textbf{einem prägnanten Satz}. Berücksichtigt dabei den Preis, den der Mensch für Kultur zahlt.
+        \item[-] \textbf{b) Advanced Organizer:} Öffnet \texttt{herrdayi.github.io/AO} auf dem Tablet und verortet Freud im Spannungsfeld zwischen Rousseau und Gehlen.
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.25cm}
+
+\begin{itemize}
+    \item []\textbf{\faUsers \enskip Sozialform:} Partnerarbeit (PA) \quad \textbf{\faClock \enskip Zeit:} ca. 10--15 Min.
+\end{itemize}
+
+\vspace{0.35cm}
+\scriptsize
+
+\begin{itemize}
+   \item[] \runningMan \, \textbf{Sprinter-Aufgabe:} \newline
+   Welcher Begriff bildet bei Freud das genaue Gegenstück zu Gehlens Begriff der \glqq Entlastung\grqq? Begründet kurz schriftlich.
+\end{itemize}
+\end{frame}
+
+% ==================================================
+% 6. Vertiefung: Die Golden Record
+% ==================================================
+\begin{frame}[t]{\faSatellite \enskip 6. Vertiefung: Die Voyager Golden Record}
+\vspace{0.2cm}
+
+\begin{itemize}
+    \item []\textbf{\faPen \enskip Didaktische Reserve (Golden Record Transfer):} \newline
+    1977 schickte die NASA mit der \textit{Voyager Golden Record} ein Bildarchiv der menschlichen Zivilisation ins All.
+    \begin{itemize}
+        \item[-] Wählt ein Bild aus dem Archiv (in der Lernumgebung unter Tab 4).
+        \item[-] \textbf{Kommentiert} das Bild aus Sigmund Freuds Perspektive: \\
+        Was offenbart das Motiv über menschliche Natur, Triebverzicht und das seelische Unbehagen in der Zivilisation?
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.35cm}
+
+\begin{itemize}
+    \item []\textbf{\faUsers \enskip Sozialform:} Partner- oder Einzelarbeit
+    \vspace{0.15cm}
+    \item []\textbf{\faLaptopCode \enskip Material:} Tablet $\rightarrow$ \texttt{herrdayi.github.io/Freud} (Tab 4)
+\end{itemize}
+\end{frame}
+
+% ==================================================
+% 7. Check-Out
+% ==================================================
+\begin{frame}[t]{7. Check-Out \emoji{ticket}}
+\vspace{0.4cm}
+
+\begin{itemize}
+    \item[\emoji{light-bulb} \textbf{1.}] \normalsize \textbf{Ich weiß jetzt ...}
+    \vspace{1.4cm}
+
+    \item[\emoji{brain} \textbf{2.}] \normalsize \textbf{Besonders spannend fand ich heute ...}
+    \vspace{1.4cm}
+
+    \item[\emoji{rocket} \textbf{3.}] \normalsize \textbf{Diese Frage nehme ich mit ...}
+\end{itemize}
+\end{frame}
+
+\end{document}

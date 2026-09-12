@@ -3,3 +3,6 @@
 *.out
 *.synctex.gz
 .DS_Store
+*.nav
+*.snm
+*.toc

@@ -729,3 +729,56 @@ body.dark-mode .dialogue-bubble.ueber-ich {
     .text-paragraph { padding-left: 32px; }
     .vocab-card-horizontal { position: relative; top: 0; }
 }
+
+/* Placemat Download & Preview */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-sm);
+}
+
+.download-btn:hover {
+    background-color: var(--primary-accent);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .download-btn {
+    background-color: #2563eb;
+}
+
+.placemat-svg-wrapper {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+body.dark-mode .placemat-svg-wrapper {
+    background: #1e293b;
+}
+
+.placemat-svg-wrapper svg {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    display: block;
+}
+

@@ -1,5 +1,6 @@
 \documentclass[a3paper, landscape, 12pt]{scrartcl}
 
+% Exakte Ränder: 1.2cm rundum, keine Seitenzahlen
 \usepackage[a3paper, landscape, margin=1.2cm]{geometry}
 \usepackage[ngerman]{babel}
 \usepackage{libertinus}
@@ -11,63 +12,71 @@
 \definecolor{accentBlue}{RGB}{37, 99, 235}
 
 \pagestyle{empty}
+\setlength{\parindent}{0pt}
 
-\begin{document}
-
-\begin{tikzpicture}[remember picture, overlay]
-
-    % =========================================================================
-    % 1. GEOMETRIE: EXAKT NACH VORLAGE DES NUTZERS (3 AUSSENFELDER + MITTELFELD)
-    % =========================================================================
-
-    % Äußere Eckpunkte
-    \coordinate (TL) at ([xshift=1.2cm, yshift=-1.2cm]current page.north west);
-    \coordinate (TR) at ([xshift=-1.2cm, yshift=-1.2cm]current page.north east);
-    \coordinate (BR) at ([xshift=-1.2cm, yshift=1.2cm]current page.south east);
-    \coordinate (BL) at ([xshift=1.2cm, yshift=1.2cm]current page.south west);
-
-    % Äußerer Rahmen
-    \draw[line width=1.5pt, color=primaryBlue] (TL) rectangle (BR);
-
-    % Zentrales Mittelfeld (Rechteck in der Mitte)
-    % A3: 42.0cm x 29.7cm -> Mittelfeld ca. 20.5cm x 12.5cm
-    \coordinate (ITL) at ([xshift=-10.25cm, yshift=6.25cm]current page.center);
-    \coordinate (ITR) at ([xshift=10.25cm, yshift=6.25cm]current page.center);
-    \coordinate (IBR) at ([xshift=10.25cm, yshift=-6.25cm]current page.center);
-    \coordinate (IBL) at ([xshift=-10.25cm, yshift=-6.25cm]current page.center);
-
-    % Mittlere Punkte der unteren Kanten
-    \coordinate (IBC) at ([yshift=-6.25cm]current page.center); % Unten Mitte des Innenkastens
-    \coordinate (BC)  at ([yshift=1.2cm]current page.south);      % Unten Mitte des Außenrahmens
-
-    % Die 3 Trennlinien exakt wie auf der Skizze:
-    % 1. Von Ecke Oben-Links (TL) zu Innen-Ecke Oben-Links (ITL)
-    \draw[line width=1.2pt, color=primaryBlue] (TL) -- (ITL);
-    % 2. Von Ecke Oben-Rechts (TR) zu Innen-Ecke Oben-Rechts (ITR)
-    \draw[line width=1.2pt, color=primaryBlue] (TR) -- (ITR);
-    % 3. Von Unterkante Innenkasten (IBC) senkrecht nach unten zur Außenkante (BC)
-    \draw[line width=1.2pt, color=primaryBlue] (IBC) -- (BC);
-
-    % Zentrales Feld füllen & umranden
-    \fill[color=lightBlue!40] (ITL) rectangle (IBR);
-    \draw[line width=1.8pt, color=primaryBlue] (ITL) rectangle (IBR);
+\begin{document}%
+\noindent%
+\begin{tikzpicture}[x=1cm, y=1cm]
 
     % =========================================================================
-    % 2. BESCHRIFTUNG & HILFEN: MITTELFELD (GEMEINSAME SYNTHESE)
+    % 1. GEOMETRIE (EXAKT NACH DER SKIZZE DES NUTZERS)
+    % Bounding Box: 39.0cm x 26.5cm (passt perfekt auf 1 Seite A3)
     % =========================================================================
-    \node[anchor=north, text width=19.5cm, align=center, font=\sffamily] at ([yshift=-0.45cm]current page.center |- ITL) {
-        {\Large\bfseries\color{primaryBlue} Mittelfeld: Gemeinsame Strukturlegetechnik}\\[0.12cm]
+
+    % Eckpunkte Außenrahmen
+    \coordinate (BL) at (0, 0);
+    \coordinate (BR) at (39.0, 0);
+    \coordinate (TR) at (39.0, 26.5);
+    \coordinate (TL) at (0, 26.5);
+
+    % Eckpunkte Innenkasten (zentriert: Breite 20.0cm, Höhe 12.0cm)
+    % x von 9.5 bis 29.5 (Mitte bei 19.5)
+    % y von 7.2 bis 19.2 (Mitte bei 13.2)
+    \coordinate (IBL) at (9.5, 7.2);
+    \coordinate (IBR) at (29.5, 7.2);
+    \coordinate (ITR) at (29.5, 19.2);
+    \coordinate (ITL) at (9.5, 19.2);
+
+    % Mittelpunkte der unteren Kanten
+    \coordinate (IBC) at (19.5, 7.2);
+    \coordinate (BC)  at (19.5, 0);
+
+    % Hintergrund für das Mittelfeld
+    \fill[color=lightBlue!50] (IBL) rectangle (ITR);
+
+    % --- LINIEN (EXAKT WIE AUF DER VORLAGE) ---
+    % 1. Außenrahmen
+    \draw[line width=1.8pt, color=primaryBlue] (BL) rectangle (TR);
+
+    % 2. Innenkasten
+    \draw[line width=1.8pt, color=primaryBlue] (IBL) rectangle (ITR);
+
+    % 3. Diagonale Oben-Links
+    \draw[line width=1.4pt, color=primaryBlue] (TL) -- (ITL);
+
+    % 4. Diagonale Oben-Rechts
+    \draw[line width=1.4pt, color=primaryBlue] (TR) -- (ITR);
+
+    % 5. Senkrechte Unten-Mitte
+    \draw[line width=1.4pt, color=primaryBlue] (IBC) -- (BC);
+
+
+    % =========================================================================
+    % 2. INHALT MITTELFELD: GEMEINSAME STRUKTURLEGETECHNIK
+    % =========================================================================
+    \node[anchor=north, text width=19.0cm, align=center, font=\sffamily] at (19.5, 18.7) {
+        {\Large\bfseries\color{primaryBlue} Mittelfeld: Gemeinsame Strukturlegetechnik}\\[0.15cm]
         {\small\color{primaryBlue!85}\textbf{Anleitung:} Einigt euch auf die \textbf{5 Kernbegriffe}. Legt und ordnet sie als \textbf{Ober- und Unterbegriffe} bzw. in ihr Wirkungsgefüge und verbindet sie mit beschrifteten Pfeilen ($\rightarrow$, $\leftrightarrow$).}
     };
 
-    % Zarte Orientierungs-Kästen für die 5 Stationen (viel Freiraum zum Legen/Schreiben)
-    \node[anchor=center, text width=19.5cm, align=center, font=\footnotesize\sffamily\color{gray!70}] at ([yshift=-0.3cm]current page.center) {
-        \begin{tikzpicture}[x=3.8cm, y=1.2cm]
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b1) at (0, 1.6) {\textbf{\color{primaryBlue}1. Biologische Natur}\\ \tiny Triebbegabung / Homo homini lupus};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b2) at (2.4, 1.6) {\textbf{\color{primaryBlue}2. Bedrohte Kultur}\\ \tiny Zerfall der Gesellschaft};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b3) at (4.8, 1.6) {\textbf{\color{primaryBlue}3. Kulturelle Zähmung}\\ \tiny Triebverzicht / Liebesgebot};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b4) at (1.2, -1.6) {\textbf{\color{primaryBlue}4. Psychischer Wandel}\\ \tiny Introjektion $\rightarrow$ Über-Ich};
-            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.6cm, align=center] (b5) at (3.6, -1.6) {\textbf{\color{primaryBlue}5. Seelische Kostenstelle}\\ \tiny Schuldbewusstsein / Unbehagen};
+    % Zarte Orientierungs-Kästchen für die 5 Stationen (lassen viel Platz zum Legen)
+    \node[anchor=center, text width=19.0cm, align=center, font=\footnotesize\sffamily\color{gray!70}] at (19.5, 12.5) {
+        \begin{tikzpicture}[x=3.7cm, y=1.2cm]
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b1) at (0, 1.5) {\textbf{\color{primaryBlue}1. Biologische Natur}\\ \tiny Triebbegabung / Homo homini lupus};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.2cm, align=center] (b2) at (2.4, 1.5) {\textbf{\color{primaryBlue}2. Bedrohte Kultur}\\ \tiny Zerfall der Gesellschaft};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b3) at (4.8, 1.5) {\textbf{\color{primaryBlue}3. Kulturelle Zähmung}\\ \tiny Triebverzicht / Liebesgebot};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.4cm, align=center] (b4) at (1.2, -1.5) {\textbf{\color{primaryBlue}4. Psychischer Wandel}\\ \tiny Introjektion $\rightarrow$ Über-Ich};
+            \node[draw=primaryBlue!35, rounded corners, fill=white, inner sep=5pt, text width=3.6cm, align=center] (b5) at (3.6, -1.5) {\textbf{\color{primaryBlue}5. Seelische Kostenstelle}\\ \tiny Schuldbewusstsein / Unbehagen};
 
             \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b1) -- node[above, font=\tiny] {erzeugt} (b2);
             \draw[->, >=latex, line width=0.8pt, color=primaryBlue!35, dashed] (b2) -- node[above, font=\tiny] {erzwingt} (b3);
@@ -76,31 +85,31 @@
         \end{tikzpicture}
     };
 
+
     % =========================================================================
-    % 3. BESCHRIFTUNG: DIE 3 AUSSENFELDER (FÜR EINE 3ER-GRUPPE)
+    % 3. BESCHRIFTUNG DER 3 AUSSENFELDER (FÜR 3ER-GRUPPE)
     % =========================================================================
 
     % --- FELD 1: OBEN (Trapez) ---
-    \node[anchor=north, text width=26cm, align=center, font=\sffamily] at ([yshift=-0.4cm]current page.north) {
+    \node[anchor=north, text width=26cm, align=center, font=\sffamily] at (19.5, 25.7) {
         \textbf{\color{primaryBlue}\large Außenfeld 1 (Schüler/in A)} \qquad Name: \rule{5cm}{0.4pt}\\[0.15cm]
         \small\textbf{1.} Lies den Textauszug und notiere für dich \textbf{5--8 zentrale Begriffe}. \quad
         \textbf{2.} Lies die Felder der anderen und markiere: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
-    % --- FELD 2: UNTEN LINKS (Polygon) ---
-    \node[anchor=north west, text width=16.5cm, align=left, font=\sffamily] at ([xshift=1.6cm, yshift=-0.4cm]current page.west |- IBL) {
+    % --- FELD 2: UNTEN LINKS ---
+    \node[anchor=north west, text width=17.0cm, align=left, font=\sffamily] at (1.0, 6.4) {
         \textbf{\color{primaryBlue}\large Außenfeld 2 (Schüler/in B)} \quad Name: \rule{4.5cm}{0.4pt}\\[0.15cm]
         \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.05cm]
         \small\textbf{2.} Markiere in den anderen Feldern: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
-    % --- FELD 3: UNTEN RECHTS (Polygon) ---
-    \node[anchor=north west, text width=16.5cm, align=left, font=\sffamily] at ([xshift=0.8cm, yshift=-0.4cm]IBC) {
+    % --- FELD 3: UNTEN RECHTS ---
+    \node[anchor=north west, text width=17.0cm, align=left, font=\sffamily] at (20.5, 6.4) {
         \textbf{\color{primaryBlue}\large Außenfeld 3 (Schüler/in C)} \quad Name: \rule{4.5cm}{0.4pt}\\[0.15cm]
         \small\textbf{1.} Notiere hier für dich \textbf{5--8 zentrale Begriffe}.\\[0.05cm]
         \small\textbf{2.} Markiere in den anderen Feldern: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
-\end{tikzpicture}
-
+\end{tikzpicture}%
 \end{document}

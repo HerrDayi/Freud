@@ -28,10 +28,10 @@
 
     % Zentrales Mittelfeld (Placemat Center)
     % A3 landscape: ~42cm x 29.7cm -> Innenfeld ca. 20cm x 14cm
-    \coordinate (CNW) at ([xshift=-10cm, yshift=7cm]current page.center);
-    \coordinate (CNE) at ([xshift=10cm, yshift=7cm]current page.center);
-    \coordinate (CSE) at ([xshift=10cm, yshift=-7cm]current page.center);
-    \coordinate (CSW) at ([xshift=-10cm, yshift=-7cm]current page.center);
+    \coordinate (CNW) at ([xshift=-10.5cm, yshift=7.2cm]current page.center);
+    \coordinate (CNE) at ([xshift=10.5cm, yshift=7.2cm]current page.center);
+    \coordinate (CSE) at ([xshift=10.5cm, yshift=-7.2cm]current page.center);
+    \coordinate (CSW) at ([xshift=-10.5cm, yshift=-7.2cm]current page.center);
 
     % Diagonale Trennlinien zu den Ecken (4 Außenfelder)
     \draw[line width=1.2pt, color=primaryBlue!70, dashed] (NW) -- (CNW);
@@ -46,19 +46,19 @@
     % =========================================================================
     % INHALT MITTELFELD: STRUKTURLEGETECHNIK (GEMEINSAME SYNTHESE)
     % =========================================================================
-    \node[anchor=north, text width=19cm, align=center, font=\sffamily] at ([yshift=-0.5cm]current page.center |- CNW) {
+    \node[anchor=north, text width=20cm, align=center, font=\sffamily] at ([yshift=-0.5cm]current page.center |- CNW) {
         {\Large\bfseries\color{primaryBlue} Mittelfeld: Gemeinsame Strukturlegetechnik}\\[0.15cm]
-        {\small\color{primaryBlue!80}\textbf{Anleitung:} Einigt euch auf die \textbf{5 tragenden Kernbegriffe} Freuds. Ordnet sie als Legekarten an (Kausalkette / Begriffs-Hierarchie) und verbindet sie mit beschrifteten Pfeilen ($\rightarrow$, $\leftrightarrow$).}
+        {\small\color{primaryBlue!80}\textbf{Anleitung:} Einigt euch auf die \textbf{5 Kernbegriffe}. Legt und ordnet sie als \textbf{Ober- und Unterbegriffe} bzw. in ihr Wirkungsgefüge und verbindet sie mit beschrifteten Pfeilen ($\rightarrow$, $\leftrightarrow$).}
     };
 
     % Hilfsmarkierungen im Mittelfeld (5 Stationen als sanfte Orientierung)
-    \node[anchor=center, text width=18.5cm, align=center, font=\footnotesize\sffamily\color{gray!70}] at (current page.center) {
-        \begin{tikzpicture}[x=3.5cm, y=1.2cm]
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3cm, align=center] (b1) at (0, 1.8) {\textbf{\color{primaryBlue}1. Biologische Natur}\\ \tiny Triebbegabung / Homo homini lupus};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3cm, align=center] (b2) at (2.4, 1.8) {\textbf{\color{primaryBlue}2. Bedrohte Kultur}\\ \tiny Zerfall der Gesellschaft};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.2cm, align=center] (b3) at (4.8, 1.8) {\textbf{\color{primaryBlue}3. Kulturelle Zähmung}\\ \tiny Triebverzicht / Liebesgebot};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.2cm, align=center] (b4) at (1.2, -1.8) {\textbf{\color{primaryBlue}4. Psychischer Wandel}\\ \tiny Introjektion $\rightarrow$ Über-Ich};
-            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.4cm, align=center] (b5) at (3.6, -1.8) {\textbf{\color{primaryBlue}5. Seelische Kostenstelle}\\ \tiny Schuldbewusstsein / Unbehagen};
+    \node[anchor=center, text width=19.5cm, align=center, font=\footnotesize\sffamily\color{gray!70}] at (current page.center) {
+        \begin{tikzpicture}[x=3.8cm, y=1.2cm]
+            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.2cm, align=center] (b1) at (0, 1.8) {\textbf{\color{primaryBlue}1. Biologische Natur}\\ \tiny Triebbegabung / Homo homini lupus};
+            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.2cm, align=center] (b2) at (2.4, 1.8) {\textbf{\color{primaryBlue}2. Bedrohte Kultur}\\ \tiny Zerfall der Gesellschaft};
+            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.4cm, align=center] (b3) at (4.8, 1.8) {\textbf{\color{primaryBlue}3. Kulturelle Zähmung}\\ \tiny Triebverzicht / Liebesgebot};
+            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.4cm, align=center] (b4) at (1.2, -1.8) {\textbf{\color{primaryBlue}4. Psychischer Wandel}\\ \tiny Introjektion $\rightarrow$ Über-Ich};
+            \node[draw=primaryBlue!40, rounded corners, fill=white, inner sep=6pt, text width=3.6cm, align=center] (b5) at (3.6, -1.8) {\textbf{\color{primaryBlue}5. Seelische Kostenstelle}\\ \tiny Schuldbewusstsein / Unbehagen};
 
             \draw[->, >=latex, line width=1pt, color=primaryBlue!40, dashed] (b1) -- node[above, font=\tiny] {erzeugt} (b2);
             \draw[->, >=latex, line width=1pt, color=primaryBlue!40, dashed] (b2) -- node[above, font=\tiny] {erzwingt} (b3);
@@ -73,28 +73,28 @@
 
     % Außenfeld 1 (Oben / Nord)
     \node[anchor=north, text width=16cm, align=center, font=\sffamily] at ([yshift=-0.4cm]current page.north) {
-        \textbf{\color{primaryBlue}Außenfeld 1 (Schüler/in A):} Name: \rule{4cm}{0.4pt} \quad \textbf{6--8 Schlüsselbegriffe} (! = tragend, ? = unklar)\\[0.1cm]
-        \tiny\color{gray}Lies den Textauszug. Schreibe 6--8 zentrale Substantive heraus. Kennzeichne zentrale Thesenbegriffe mit [ ! ] und Unklares mit [ ? ].
+        \textbf{\color{primaryBlue}Außenfeld 1 (Schüler/in A):} Name: \rule{4cm}{0.4pt} \quad \textbf{5--8 zentrale Begriffe}\\[0.1cm]
+        \tiny\color{gray}1. Schreibe für dich 5--8 zentrale Begriffe auf. \quad 2. Lies danach die Felder der anderen und markiere: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
     % Außenfeld 2 (Rechts / Ost - gedreht für die Person am Kopfende)
     \node[anchor=center, rotate=90, text width=12cm, align=center, font=\sffamily] at ([xshift=-1.6cm]current page.east) {
         \textbf{\color{primaryBlue}Außenfeld 2 (Schüler/in B):} Name: \rule{4cm}{0.4pt}\\[0.05cm]
-        \textbf{6--8 Schlüsselbegriffe} (! = tragend, ? = unklar)\\[0.1cm]
-        \tiny\color{gray}Notiere hier deine persönlichen Leitbegriffe aus Freuds Text.
+        \textbf{5--8 zentrale Begriffe} (! = tragend, ? = unklar)\\[0.1cm]
+        \tiny\color{gray}1. Schreibe 5--8 Begriffe auf. \quad 2. Lies die Felder der anderen und markiere [ ! ] oder [ ? ].
     };
 
     % Außenfeld 3 (Unten / Süd)
     \node[anchor=south, text width=16cm, align=center, font=\sffamily] at ([yshift=0.4cm]current page.south) {
-        \textbf{\color{primaryBlue}Außenfeld 3 (Schüler/in C):} Name: \rule{4cm}{0.4pt} \quad \textbf{6--8 Schlüsselbegriffe} (! = tragend, ? = unklar)\\[0.1cm]
-        \tiny\color{gray}Lies den Textauszug. Schreibe 6--8 zentrale Substantive heraus. Kennzeichne zentrale Thesenbegriffe mit [ ! ] und Unklares mit [ ? ].
+        \textbf{\color{primaryBlue}Außenfeld 3 (Schüler/in C):} Name: \rule{4cm}{0.4pt} \quad \textbf{5--8 zentrale Begriffe}\\[0.1cm]
+        \tiny\color{gray}1. Schreibe für dich 5--8 zentrale Begriffe auf. \quad 2. Lies danach die Felder der anderen und markiere: \textbf{!} = tragend, \textbf{?} = unklar.
     };
 
     % Außenfeld 4 (Links / West - gedreht)
     \node[anchor=center, rotate=-90, text width=12cm, align=center, font=\sffamily] at ([xshift=1.6cm]current page.west) {
         \textbf{\color{primaryBlue}Außenfeld 4 (Schüler/in D):} Name: \rule{4cm}{0.4pt}\\[0.05cm]
-        \textbf{6--8 Schlüsselbegriffe} (! = tragend, ? = unklar)\\[0.1cm]
-        \tiny\color{gray}Notiere hier deine persönlichen Leitbegriffe aus Freuds Text.
+        \textbf{5--8 zentrale Begriffe} (! = tragend, ? = unklar)\\[0.1cm]
+        \tiny\color{gray}1. Schreibe 5--8 Begriffe auf. \quad 2. Lies die Felder der anderen und markiere [ ! ] oder [ ? ].
     };
 
 \end{tikzpicture}

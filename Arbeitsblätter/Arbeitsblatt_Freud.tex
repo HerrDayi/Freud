@@ -1,3 +1,5 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
 \documentclass[a4paper, 11pt, parskip=half]{scrartcl}
 
 % ============================================================
@@ -5,7 +7,10 @@
 % ============================================================
 \usepackage[a4paper, top=1.6cm, bottom=1.8cm, left=2.0cm, right=1.8cm, footskip=0.8cm]{geometry}
 \usepackage[ngerman]{babel}
-\usepackage{libertinus} 
+\usepackage{fontspec}
+\setmainfont{Libertinus Serif}
+\setsansfont{Latin Modern Sans}
+\usepackage{amsmath, amssymb}
 \usepackage{multicol} 
 \usepackage{lineno} 
 \usepackage{changepage} 
@@ -16,7 +21,6 @@
 \usepackage[most]{tcolorbox}
 \usepackage{tabularx}
 \usepackage{tikz}
-\usepackage{wasysym}     
 
 \definecolor{primaryBlue}{RGB}{20, 50, 100} 
 \definecolor{lightBlue}{RGB}{245, 248, 253}
@@ -64,9 +68,11 @@
 % ================= SEITE 1: TEXT UND INFOKASTEN =================
 
 \noindent
-\begin{minipage}[t]{0.32\textwidth}\textbf{Philosophie Q1} \\ Herr Dayi\end{minipage}
-\begin{minipage}[t]{0.36\textwidth}\centering\textbf{\large Anthropologie \& Kultur}\end{minipage} 
-\begin{minipage}[t]{0.32\textwidth}\flushright Datum: \rule{2.5cm}{0.4pt}\end{minipage}
+\begin{minipage}[t]{0.30\textwidth}\textbf{Philosophie Q1} \\ Herr Dayi\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.38\textwidth}\centering\textbf{\large Anthropologie \& Kultur}\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.30\textwidth}\raggedleft Datum: \rule{2.5cm}{0.4pt}\end{minipage}
 
 \vspace{0.2cm}
 \hrule height 1pt
@@ -159,7 +165,7 @@ Sigmund Freud war ein österreichischer Arzt, Neurophysiologe und der Begründer
 % === AUFGABE 2: SYNTHESE & TRANSFER ===
 \begin{aufgabe}{\iconPA}
 \begin{enumerate}[label=\alph*), leftmargin=0.5cm, itemsep=0.2cm]
-    \item \textbf{Verdichtet} Freuds Kulturkritik in \textbf{einem prägnanten Satz}. Berücksichtigt dabei den \textbf{Preis, den der Mensch für die kulturelle Ordnung zahlt}.
+    \item \textbf{Verdichtet} Freuds Kulturkritik in \textbf{einem prägnanten Satz}. Berücksichtigt dabei den \textbf{Preis für die kulturelle Ordnung}.
     \item \textbf{Ordnet} Freud in eurem digitalen \textbf{Advanced Organizer} ein und ergänzt euren Satz.
 \end{enumerate}
 \end{aufgabe}
